@@ -15,11 +15,16 @@ The other two files are:
 
 The process to use these files is as follows:
 
-a) change mymain.h to be your project code - as found here it is just a "fake multitasking" blinky
-b) change any details of the AP as per above (e.g. AP IP)
-c) compile and upload as usual
-d) switch your WiFi to the new AP (default: "ESP32-Access-Point"), enter AP password (default: "12345678")
-e) make a change to main.h so you can recognise the new code
-f) navigate your browser to the IP address (default: 192.168.19.63)
-g) enter the login (default: admin) and password (default: admin)
-h) upload the new code and enjoy!
+1. change mymain.h to be your project code - as found here it is just a "fake multitasking" blinky
+2. change any details of the AP as per above (e.g. AP IP)
+3. compile and upload as usual
+4. switch your WiFi to the new AP (default: "ESP32-Access-Point"), enter AP password (default: "12345678")
+5. make a change to main.h so you can recognise the new code
+6. navigate your browser to the IP address (default: 192.168.19.63)
+7. enter the login (default: admin) and password (default: admin)
+8. upload the new code and enjoy!
+
+**More information at:**
+https://onecircuit.blogspot.com/
+https://youtube.com/@onecircuit-as
+

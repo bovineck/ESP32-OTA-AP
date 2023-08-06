@@ -24,7 +24,8 @@ The process to use these files is as follows:
 7. enter the login (default: admin) and password (default: admin)
 8. upload the new code and enjoy!
 
-**More information at:**
+## **More information at:**
+
 https://onecircuit.blogspot.com/
 
 https://youtube.com/@onecircuit-as

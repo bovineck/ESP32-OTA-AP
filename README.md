@@ -2,10 +2,15 @@
 ESP32 code to allow the device to be an AP and update it's own code "over the air" or OTA
 
 Download the zip file, unzip and then load ESP32-OTA-AP into the Arduino IDE. You can alter some variables here such as the SSID and PASSWORD of the Access Point, as well as it's IP address. Defaults are:
+
 ssid = "ESP32-Access-Point"
+
 password = "12345678"
+
 AP IP: 192.168.19.63
+
 page login: admin
+
 page password: admin
 
 The other two files are:

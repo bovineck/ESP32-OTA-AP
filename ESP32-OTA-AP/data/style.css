@@ -3,6 +3,10 @@ body {
     background-color: powderblue;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
 }
 
 h1 {
@@ -19,11 +23,16 @@ form {
     text-align: center
 }
 
-input[type="file"], input[type="password"], input[type="submit"] {
-    margin: 5px;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    text-align: center
+
+button {
+    background: linear-gradient(to bottom, #007bff, #0056b3);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.6);
+    font-size: 16px;
 }
 

@@ -10,39 +10,31 @@
 
    So you keep the OTA file intact, making
    code changes as you wish to this file.
+
+   The example below is for soil moisture
+   readings and watering via IoT.
+   
 */
 
-// Variables to change
+#ifndef MYMAIN_H
+#define MYMAIN_H
 
-unsigned long ledtime = 0;
-unsigned long currentMillis = 0;
-unsigned long led_delay = 1202;
-boolean ledstate = false;
+#include <Arduino.h> // Arduino functions
 
-#define led_pin 21
+const int AirValue = 620;   // Replace with actual AirValue
+const int WaterValue = 310;  // Replace with actual WaterValue
+int soilMoisture = 0;
 
-// MySetup stuff
 void MySetup(void) {
-  pinMode(led_pin, OUTPUT);
-  digitalWrite(led_pin, LOW);
-  currentMillis = millis();
-  ledtime = currentMillis;
+  pinMode(A0, INPUT); // Assuming the sensor is connected to A0
 }
 
-// loop() visits here for actual code
 void MyLoop(void) {
-
-  // fake multi-tasking routines with blinking!
-  currentMillis = millis();
-  if (currentMillis - ledtime >= led_delay) {
-    if (ledstate) {
-      digitalWrite(led_pin, LOW);
-      ledstate = false;
-    }
-    else {
-      digitalWrite(led_pin, HIGH);
-      ledstate = true;
-    }
-    ledtime = currentMillis;
-  }
+  // Read soil moisture and update soilMoisture variable
+  soilMoisture = analogRead(A0); // Replace with the appropriate pin if needed
+  soilMoisture = map(soilMoisture, AirValue, WaterValue, 0, 100);
+  
+  // Your custom loop logic here
 }
+
+#endif // MYMAIN_H

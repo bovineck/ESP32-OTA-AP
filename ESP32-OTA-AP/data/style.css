@@ -1,0 +1,29 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: powderblue;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: #333;
+    text-align: center
+}
+
+form {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    background-color: powderblue;
+    border-radius: 5px;
+    text-align: center
+}
+
+input[type="file"], input[type="password"], input[type="submit"] {
+    margin: 5px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    text-align: center
+}
+

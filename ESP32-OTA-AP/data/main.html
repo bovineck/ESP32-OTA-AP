@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Main Page - ESP32 IoT Project</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <h1>Welcome to ESP32 IoT Project</h1>
+    <p>Sensor Data: <span id="sensorValue">...</span></p>
+    <button id="startButton">Start Timing</button>
+    <button id="resetButton">Reset Timer</button>
+    <a href="upload.html">Upload Firmware</a>
+    
+    <script>
+        // JavaScript code to interact with ESP32
+        // Replace with your logic
+        document.getElementById("startButton").addEventListener("click", function() {
+            // Implement start timing logic here
+        });
+
+        document.getElementById("resetButton").addEventListener("click", function() {
+            // Implement reset timer logic here
+        });
+
+        // Fetch and display sensor data using AJAX
+        function fetchSensorData() {
+            // Implement AJAX request to retrieve sensor data from ESP32
+            // Update the 'sensorValue' span with the retrieved value
+            document.getElementById("sensorValue").textContent = "Sensor Value: ..."; // Replace with actual value
+        }
+
+        // Fetch sensor data periodically
+        setInterval(fetchSensorData, 2000); // Update every 2 seconds
+    </script>
+</body>
+
+</html>

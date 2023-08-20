@@ -14,7 +14,7 @@
    when you login. See the blog below for all
    the code and the instructions.
 
-      OneCircuit Wed 02 Aug 2023 18:40:22 AEST
+      OneCircuit Sun 20 Aug 2023 23:09:47 AEST
       https://www.youtube.com/@onecircuit-as
       https://onecircuit.blogspot.com/
 */
@@ -75,7 +75,9 @@ void handleUpdate() {
     }
   } else if (upload.status == UPLOAD_FILE_END) {
     if (Update.end(true)) {
-      server.send(200, "text/plain", "Update successful. Rebooting...");
+      server.send(200, "text/html", "Update successful. Rebooting...<a href='/'>Return to main page</a>");
+      server.client().flush(); // Flush the response
+      delay(1000); // Delay for 1 second
       ESP.restart();
     } else {
       Update.printError(Serial);
@@ -121,7 +123,7 @@ void loop() {
 void otaWebServerTask(void* parameter) {
   ArduinoOTA.setHostname("OTA_ESP32");
   ArduinoOTA.begin();
-  
+
   if (!LittleFS.begin()) {
     return;
   }
@@ -136,6 +138,15 @@ void otaWebServerTask(void* parameter) {
   server.on("/style.css", HTTP_GET, handleCSS);
   server.on("/upload.html", HTTP_GET, handleUploadFile);
 
+  /*
+    // An example of how to manage an application request
+    // see "main.html" in the data folder
+    server.on("/moisture", HTTP_GET, []() {
+    server.send(200, "text/plain", String(soilMoisture));
+    });
+
+  */
+  
   server.begin();
 
   while (1) {

@@ -14,24 +14,24 @@ ESP32-OTA-AP is a versatile IoT framework that empowers ESP32 projects with seam
 1. Download and unzip the repository.
 1. Open ESP32-OTA-AP.ino in the Arduino IDE.
 1. Modify variables (e.g., SSID, PASSWORD) to match your network settings.
-1. Edit your application-specific code in mymain.h.
+1. Edit your application-specific code in mymain.h (separate tab on the IDE)
 1. Upload the code to your ESP32 board.
 
 ## File Structure:
 
+![File Structure](/filestructure.png)
 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**data/**: Contains SPIFFS Files
 
-**data/**: Contains SPIFFS Files
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**main.html**: User interface for your IoT project, featuring buttons, inputs, and readouts.
 
-**main.html**: User interface for your IoT project, featuring buttons, inputs, and readouts.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**upload.html**: Dedicated page for uploading new firmware with a password field and file selection.
 
-**upload.html**: Dedicated page for uploading new firmware with a password field and file selection.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**style.css**: Styling page to customize fonts, colors, and formatting.
 
-**style.css**: Styling page to customize fonts, colors, and formatting.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**ESP32-OTA-AP.ino**: Core 0 sketch with OTA setup, handler routines, and links to mymain.h.
 
-**ESP32-OTA-AP.ino**: Core 0 sketch with OTA setup, handler routines, and links to mymain.h.
-
-**mymain.h**: Core 1 application-specific code with variables, setup, and loop logic. Utilize the ESP32's second core for multitasking.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**mymain.h**: Core 1 application-specific code with variables, setup, and loop logic. Utilize the ESP32's second core for multitasking.
 
 
 

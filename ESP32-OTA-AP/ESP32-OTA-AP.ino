@@ -25,7 +25,7 @@
 #include <Update.h>
 #include <ArduinoOTA.h>
 #include "FS.h"
-#include <SPIFFS.h>
+#include <LittleFS.h>
 #include "mymain.h"
 
 const char* ssid = "YourAccessPointSSID";
@@ -35,16 +35,25 @@ const char* firmwareUpdatePassword = "your_custom_password_here";
 WebServer server(80);
 
 void handleRoot() {
-  File uploadPage = SPIFFS.open("/upload.html", "r");
+  File uploadPage = LittleFS.open("/main.html", "r");
   server.streamFile(uploadPage, "text/html");
 }
 
 void handleCSS() {
   server.sendHeader("Content-Type", "text/css");
-  File cssFile = SPIFFS.open("/style.css", "r");
+  File cssFile = LittleFS.open("/style.css", "r");
   if (cssFile) {
     server.streamFile(cssFile, "text/css");
     cssFile.close();
+  }
+}
+
+void handleUploadFile() {
+  server.sendHeader("Content-Type", "text/html");
+  File uploadFile = LittleFS.open("/upload.html", "r");
+  if (uploadFile) {
+    server.streamFile(uploadFile, "text/html");
+    uploadFile.close();
   }
 }
 
@@ -113,7 +122,7 @@ void otaWebServerTask(void* parameter) {
   ArduinoOTA.setHostname("OTA_ESP32");
   ArduinoOTA.begin();
   
-  if (!SPIFFS.begin(true)) {
+  if (!LittleFS.begin()) {
     return;
   }
 
@@ -125,6 +134,7 @@ void otaWebServerTask(void* parameter) {
     server.send(200, "text/html", "<h1>Uploading...</h1>");
   }, handleUpdate);
   server.on("/style.css", HTTP_GET, handleCSS);
+  server.on("/upload.html", HTTP_GET, handleUploadFile);
 
   server.begin();
 

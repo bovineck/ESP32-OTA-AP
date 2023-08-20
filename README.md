@@ -1,37 +1,48 @@
-# ESP32-OTA-AP
-ESP32 code to allow the device to be an AP and update it's own code "over the air" or OTA
+# ESP32-OTA-AP: Simplify IoT Projects with OTA Updates and Web Control
 
-Download the zip file, unzip and then load ESP32-OTA-AP into the Arduino IDE. You can alter some variables here such as the SSID and PASSWORD of the Access Point, as well as it's IP address. Defaults are:
+ESP32-OTA-AP is a versatile IoT framework that empowers ESP32 projects with seamless sensor integration, OTA updates, and web-based control. The ESP32-OTA-AP.ino file configures an ESP32 as an access point (AP), offering OTA update capabilities through a built-in web server. This framework harnesses the ESP32's dual-core architecture, enabling multitasking between OTA handling and custom application logic.
 
-ssid = "ESP32-Access-Point"
+### Key Features:
 
-password = "12345678"
+* Sensor Integration: Effortlessly incorporate various sensors into your projects, such as a soil moisture sensor for real-time monitoring.
+* Web-Based Control: Access the user-friendly web interface to monitor sensor data, control devices remotely, and trigger actions.
+* OTA Updates: Ensure secure Over-The-Air (OTA) firmware updates with password-protected web interfaces.
+* Efficient Multitasking: Leverage the ESP32's dual-core architecture for parallel execution of OTA update handling and your unique application logic.
 
-AP IP: 192.168.19.63
+### How to Use:
 
-page login: admin
+1. Download and unzip the repository.
+1. Open ESP32-OTA-AP.ino in the Arduino IDE.
+1. Modify variables (e.g., SSID, PASSWORD) to match your network settings.
+1. Edit your application-specific code in mymain.h.
+1. Upload the code to your ESP32 board.
 
-page password: admin
+## File Structure:
 
-The other two files are:
 
-1. mymain.h which is like a "normal" Arduino IDE ino sketch file and it is here that you load your code for the ESP32
-2. tjquery.h which is a very large file needed for the AP to handle the upload (from https://github.com/italocjs/ESP32_OTA_APMODE)
 
-The process to use these files is as follows:
+**data/**: Contains SPIFFS Files
 
-1. change mymain.h to be your project code - as found here it is just a "fake multitasking" blinky
-2. change any details of the AP as per above (e.g. AP IP)
-3. compile and upload as usual
-4. switch your WiFi to the new AP (default: "ESP32-Access-Point"), enter AP password (default: "12345678")
-5. make a change to main.h so you can recognise the new code
-6. navigate your browser to the IP address (default: 192.168.19.63)
-7. enter the login (default: admin) and password (default: admin)
-8. upload the new code and enjoy!
+**main.html**: User interface for your IoT project, featuring buttons, inputs, and readouts.
 
-## **More information at:**
+**upload.html**: Dedicated page for uploading new firmware with a password field and file selection.
 
-https://onecircuit.blogspot.com/
+**style.css**: Styling page to customize fonts, colors, and formatting.
 
-https://youtube.com/@onecircuit-as
+**ESP32-OTA-AP.ino**: Core 0 sketch with OTA setup, handler routines, and links to mymain.h.
+
+**mymain.h**: Core 1 application-specific code with variables, setup, and loop logic. Utilize the ESP32's second core for multitasking.
+
+
+
+Explore more at:
+
+[OneCircuit Blog](https://onecircuit.blogspot.com/)
+
+[OneCircuit YouTube Channel](https://youtube.com/@onecircuit-as)
+
+Feel free to customize this framework for your unique IoT projects and streamline development with OTA capabilities and user-friendly web control.
+
+
+
 

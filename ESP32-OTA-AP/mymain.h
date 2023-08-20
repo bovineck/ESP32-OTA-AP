@@ -13,30 +13,24 @@
 */
 
 // Variables to change
-unsigned long ledtime = 0;
-unsigned long relaytime = 0;
-unsigned long currentMillis = 0;
-unsigned long led_delay = 550;
-unsigned long relay_delay = 750;
-boolean ledstate = false;
-boolean relaystate = false;
 
-#define led_pin 5
-#define relay_pin 4
+unsigned long ledtime = 0;
+unsigned long currentMillis = 0;
+unsigned long led_delay = 1202;
+boolean ledstate = false;
+
+#define led_pin 21
 
 // MySetup stuff
 void MySetup(void) {
   pinMode(led_pin, OUTPUT);
   digitalWrite(led_pin, LOW);
-  pinMode(relay_pin, OUTPUT);
-  digitalWrite(relay_pin, LOW);
   currentMillis = millis();
   ledtime = currentMillis;
-  relaytime = currentMillis;
 }
 
 // loop() visits here for actual code
-void MyLoop() {
+void MyLoop(void) {
 
   // fake multi-tasking routines with blinking!
   currentMillis = millis();
@@ -50,16 +44,5 @@ void MyLoop() {
       ledstate = true;
     }
     ledtime = currentMillis;
-  }
-  if (currentMillis - relaytime >= relay_delay) {
-    if (relaystate) {
-      digitalWrite(relay_pin, LOW);
-      relaystate = false;
-    }
-    else {
-      digitalWrite(relay_pin, HIGH);
-      relaystate = true;
-    }
-    relaytime = currentMillis;
   }
 }

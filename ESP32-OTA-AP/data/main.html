@@ -1,39 +1,44 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <title>Main Page - ESP32 IoT Project</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+  <title>Soil Moisture Control</title>
+  <style>
+    /* Add your custom styles here */
+  </style>
 </head>
-
 <body>
-    <h1>Welcome to ESP32 IoT Project</h1>
-    <p>Sensor Data: <span id="sensorValue">...</span></p>
-    <button id="startButton">Start Timing</button>
-    <button id="resetButton">Reset Timer</button>
-    <a href="upload.html">Upload Firmware</a>
+  <h1>Soil Moisture Control</h1>
+  <p>Soil Moisture: <span id="moisture">Loading...</span></p>
+  <button onclick="openValve()">Open Valve</button>
+  <button onclick="closeValve()">Close Valve</button>
+  <br>
+  <button onclick="location.href='/upload'">Update Firmware</button>
+  
+  <script>
+    function openValve() {
+      fetch('/open')
+        .then(response => response.text())
+        .then(result => console.log(result));
+    }
     
-    <script>
-        // JavaScript code to interact with ESP32
-        // Replace with your logic
-        document.getElementById("startButton").addEventListener("click", function() {
-            // Implement start timing logic here
-        });
-
-        document.getElementById("resetButton").addEventListener("click", function() {
-            // Implement reset timer logic here
-        });
-
-        // Fetch and display sensor data using AJAX
-        function fetchSensorData() {
-            // Implement AJAX request to retrieve sensor data from ESP32
-            // Update the 'sensorValue' span with the retrieved value
-            document.getElementById("sensorValue").textContent = "Sensor Value: ..."; // Replace with actual value
-        }
-
-        // Fetch sensor data periodically
-        setInterval(fetchSensorData, 2000); // Update every 2 seconds
-    </script>
+    function closeValve() {
+      fetch('/close')
+        .then(response => response.text())
+        .then(result => console.log(result));
+    }
+    
+    function updateMoisture(value) {
+      document.getElementById('moisture').textContent = value;
+    }
+    
+    function fetchMoisture() {
+      fetch('/moisture')
+        .then(response => response.text())
+        .then(result => updateMoisture(result));
+    }
+    
+    setInterval(fetchMoisture, 5000); // Update moisture reading every 5 seconds
+    fetchMoisture(); // Initial fetch
+  </script>
 </body>
-
 </html>

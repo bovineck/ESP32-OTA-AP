@@ -1,21 +1,23 @@
-# ESP32-OTA-AP: Simplify IoT Projects with OTA Updates and Web Control
+# Remote-ESP32: Simplify IoT Projects with OTA Updates and Web Control
 
-ESP32-OTA-AP is a versatile IoT framework that empowers ESP32 projects with seamless sensor integration, OTA updates, and web-based control. The ESP32-OTA-AP.ino file configures an ESP32 as an access point (AP), offering OTA update capabilities through a built-in web server. This framework harnesses the ESP32's dual-core architecture, enabling multitasking between OTA handling and custom application logic.
+Remote-ESP32 is a versatile IoT framework that empowers ESP32 projects with seamless sensor integration, OTA updates, and web-based control. The Remote-ESP32.ino file configures an ESP32 as an access point (AP), offering OTA update capabilities through a built-in web server. This framework harnesses the ESP32's dual-core architecture, enabling multitasking between OTA handling and custom application logic.
 
 ### Key Features:
 
 * Sensor Integration: Effortlessly incorporate various sensors into your projects, such as a soil moisture sensor for real-time monitoring.
 * Web-Based Control: Access the user-friendly web interface to monitor sensor data, control devices remotely, and trigger actions.
 * OTA Updates: Ensure secure Over-The-Air (OTA) firmware updates with password-protected web interfaces.
+* Update, delete, download the web interface, style.css file and any other project files.
 * Efficient Multitasking: Leverage the ESP32's dual-core architecture for parallel execution of OTA update handling and your unique application logic.
 
 ### How to Use:
 
 1. Download and unzip the repository.
-1. Open ESP32-OTA-AP.ino in the Arduino IDE.
-1. Modify variables (e.g., SSID, PASSWORD) to match your network settings.
-1. Edit your application-specific code in mymain.h (separate tab on the IDE)
-1. Upload the code to your ESP32 board.
+2. Open Remote-ESP32.ino in the Arduino IDE.
+3. Modify variables (e.g., SSID, PASSWORD) to match your network settings.
+4. Edit your application-specific code in mymain.h (separate tab on the IDE)
+5. Edit html and style files to suit
+6. Upload the code to your ESP32 board.
 
 ## File Structure:
 

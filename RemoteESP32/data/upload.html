@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<table>
+<tr>
+<td><img src="avatar.png" width="100" height="96" alt="OneCircuit"></td>
+<td><h1>OneCircuit Remote ESP32 Project</td>
+</tr>
+</table>
+<head>
+    <title>ESP32 Firmware Update</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <h1>ESP32 Firmware Update</h1>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        Password: <input type="password" name="password" required><br><br>
+        Select firmware (.bin file):
+        <input type="file" name="update" accept=".bin" required><br><br>
+        <input type="submit" value="Press to Update"><br><br>
+</form>
+        <button onclick="location.href='/'">Return to Main Page</button>
+</body>
+</html>

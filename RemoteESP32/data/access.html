@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<table>
+<tr>
+<td><img src="avatar.png" width="100" height="96" alt="OneCircuit"></td>
+<td><h1>OneCircuit Remote ESP32 Project</td>
+</tr>
+</table>
+<head>
+  <title>File System Access</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta charset="UTF-8">
+</head>
+
+<body>
+  <h2>LittleFS File System Access</h2>
+  <hr width="60%" color="black" size="3px" align="center" />
+  <!-- List Files -->
+  <ul id="fileList"></ul>
+  <hr width="60%" color="black" size="3px" align="center" />
+<!-- Upload File -->
+<h2>Upload a file to LittleFS:</h2>
+<form enctype="multipart/form-data" action="/uploadLittleFS" method="post">
+  <input type="file" name="update">
+  <input type="submit" value="Upload">
+</form>
+
+  <!-- Return to main.html -->
+  <button onclick="location.href='/'">Return to Main Page</button>
+
+<script>
+  document.addEventListener("DOMContentLoaded", async function () {
+    try {
+      // Fetch file list
+      const response = await fetch("/list");
+      const data = await response.text();
+
+      // Display file list
+      const fileList = document.getElementById("fileList");
+      if (fileList) {
+        fileList.innerHTML = data;
+      } else {
+        console.error("File list element not found");
+      }
+
+      const fileLinks = data.match(/href='\/download\?file=([^']+)'>/g);
+      if (fileLinks) {
+        fileLinks.forEach(link => {
+          const fileName = link.match(/href='\/download\?file=([^']+)'>/)[1];
+        });
+      }
+    } catch (error) {
+      console.error("Error fetching or processing file list:", error);
+    }
+  });
+</script>
+
+</body>
+
+</html>

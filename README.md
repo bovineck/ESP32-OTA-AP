@@ -33,7 +33,7 @@ Remote-ESP32 is a versatile IoT framework that empowers ESP32 projects with seam
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**style.css**: Styling page to customize fonts, colors, and formatting.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**ESP32-OTA-AP.ino**: Core 0 sketch with OTA setup, handler routines, and links to mymain.h.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Remote-ESP32.ino**: Core 0 sketch with OTA setup, handler routines, and links to mymain.h.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**mymain.h**: Core 1 application-specific code with variables, setup, and loop logic. Utilize the ESP32's second core for multitasking.
 
